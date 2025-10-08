@@ -1,0 +1,16 @@
+Uri: https://www.atendexpreja.site/cartadeacordo/?nome={{nome}}&cpf={{cpf}}&valorAcordo=78.47
+File Name: C:\Downloaded Web Sites\www.atendexpreja.site\cartadeacordo\cartadeacordo
+Content Type: text/html
+
+Uri: https://www.atendexpreja.site/css2?family=Inter:wght@400;500;600;700&display=swap
+File Name: C:\Downloaded Web Sites\www.atendexpreja.site\css2
+Content Type: application/octet-stream
+
+Uri: https://www.atendexpreja.site/ajax/libs/font-awesome/6.4.0/css/all.min.css
+File Name: C:\Downloaded Web Sites\www.atendexpreja.site\ajax\libs\font-awesome\6.4.0\css\all.min.css
+Content Type: text/css
+
+Uri: https://www.atendexpreja.site/wp-content/uploads/2017/09/serasa-logo.png
+File Name: C:\Downloaded Web Sites\www.atendexpreja.site\wp-content\uploads\2017\09\serasa-logo.png
+Content Type: image/png
+

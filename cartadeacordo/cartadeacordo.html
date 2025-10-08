@@ -1,0 +1,394 @@
+﻿<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carta de Quitação - Serasa</title>
+  <link href="../css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #ffffff;
+      color: #1e293b;
+      line-height: 1.4;
+      overflow: hidden;
+    }
+
+    .documento {
+      background-color: #ffffff;
+      max-width: 100%;
+      height: 100vh;
+      padding: 16px 20px;
+      border-left: 4px solid #D9297C;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cabecalho {
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+
+    .logo-secao {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 100px;
+      filter: brightness(1.1);
+    }
+
+    .titulo-documento {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 0;
+    }
+
+    .selo-pendente {
+      background: #f59e0b;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .selo-pendente i {
+      font-size: 10px;
+    }
+
+    .data-documento {
+      text-align: right;
+      font-size: 11px;
+      color: #64748b;
+      margin-bottom: 16px;
+      flex-shrink: 0;
+    }
+
+    .corpo-texto {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .paragrafo {
+      font-size: 13px;
+      color: #374151;
+      line-height: 1.6;
+      text-align: justify;
+      margin-bottom: 12px;
+    }
+
+    .paragrafo strong {
+      color: #1e293b;
+      font-weight: 600;
+    }
+
+    .destaque-desconto {
+      background: #D9297C;
+      color: white;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 12px 20px;
+      border-radius: 6px;
+      text-align: center;
+      margin: 16px 0;
+      flex-shrink: 0;
+    }
+
+    .tabela-detalhes {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 12px;
+      margin: 16px 0;
+      flex-shrink: 0;
+    }
+
+    .tabela-titulo {
+      font-size: 12px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tabela-titulo i {
+      color: #D9297C;
+      font-size: 12px;
+    }
+
+    .linha-detalhe {
+      display: flex;
+      justify-content: space-between;
+      padding: 4px 0;
+      border-bottom: 1px dotted #cbd5e1;
+      font-size: 12px;
+    }
+
+    .linha-detalhe:last-child {
+      border-bottom: none;
+    }
+
+    .linha-detalhe .label {
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    .linha-detalhe .valor {
+      color: #1e293b;
+      font-weight: 600;
+    }
+
+    .linha-detalhe.destaque .valor {
+      color: #10b981;
+      font-weight: 700;
+    }
+
+    .declaracao {
+      background: #fffbeb;
+      border: 1px solid #fbbf24;
+      border-left: 4px solid #f59e0b;
+      padding: 12px;
+      border-radius: 4px;
+      margin: 16px 0;
+      flex-shrink: 0;
+    }
+
+    .declaracao-texto {
+      font-size: 12px;
+      color: #92400e;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .assinatura-secao {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid #e2e8f0;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .assinatura-texto {
+      font-size: 11px;
+      color: #64748b;
+      margin-bottom: 8px;
+    }
+
+    .rodape {
+      text-align: center;
+      font-size: 10px;
+      color: #94a3b8;
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+
+    /* Responsividade */
+    @media (max-width: 480px) {
+      .documento {
+        padding: 12px 14px;
+      }
+
+      .cabecalho {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+        padding-bottom: 8px;
+        margin-bottom: 12px;
+      }
+
+      .logo-secao {
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .logo {
+        width: 80px;
+      }
+
+      .titulo-documento {
+        font-size: 16px;
+      }
+
+      .destaque-desconto {
+        font-size: 14px;
+        padding: 10px 16px;
+      }
+
+      .paragrafo {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="documento">
+    <div class="cabecalho">
+      <div class="logo-secao">
+        <img src="../wp-content/uploads/2017/09/serasa-logo.png" alt="Logo Serasa" class="logo">
+        <h1 class="titulo-documento">Confirmação de Acordo</h1>
+      </div>
+      <div class="selo-pendente">
+        <i class="fas fa-clock"></i>
+        PENDENTE
+      </div>
+    </div>
+
+    <div class="data-documento">
+      <strong>Data:</strong> <span id="dataEmissao"></span>
+    </div>
+
+  <div class="corpo-texto">
+  <div class="paragrafo">
+    Declaramos, na qualidade de <strong>Serasa Experian</strong>, que foi estabelecido um acordo de pagamento com 
+    <strong>Sr(a). <span id="nome">---</span></strong>, portador(a) do CPF 
+    <strong><span id="cpf">---</span></strong>, conforme os detalhes descritos abaixo.
+  </div>
+
+
+      <div class="destaque-desconto" id="descontoTexto">
+        Desconto de 98,7% sobre os débitos em aberto
+      </div>
+
+      <div class="tabela-detalhes">
+        <div class="tabela-titulo">
+          <i class="fas fa-file-invoice-dollar"></i>
+          Detalhes da Negociação
+        </div>
+        <div class="linha-detalhe">
+          <span class="label">Valor Original:</span>
+          <span class="valor" id="valorOriginal">R$ 7.488,05</span>
+        </div>
+        <div class="linha-detalhe">
+          <span class="label">Valor do Acordo:</span>
+          <span class="valor" id="valorAcordo">R$ 78,47</span>
+        </div>
+        <div class="linha-detalhe">
+          <span class="label">Forma de Pagamento:</span>
+          <span class="valor" id="formaPagamento">PIX</span>
+        </div>
+        <div class="linha-detalhe">
+          <span class="label">Status do Pagamento:</span>
+          <span class="valor" style="color: #f59e0b; font-weight: 700;" id="statusPagamento">PENDENTE</span>
+        </div>
+        <div class="linha-detalhe">
+          <span class="label">Prazo para Pagamento:</span>
+          <span class="valor" id="prazoPagamento">---</span>
+        </div>
+      </div>
+
+      <div class="declaracao">
+        <div class="declaracao-texto">
+          <strong>IMPORTANTE:</strong> O acordo estará válido mediante confirmação do pagamento dentro do prazo estabelecido. 
+          Após o pagamento, a quitação será processada em até 5 dias úteis.
+        </div>
+      </div>
+    </div>
+
+    <div class="assinatura-secao">
+      <div class="assinatura-texto">
+        Documento gerado automaticamente pelo sistema Serasa Experian
+      </div>
+    </div>
+
+    <div class="rodape">
+      <div>© 2024 Serasa Experian - Todos os direitos reservados</div>
+      <div>Documento com validade jurídica</div>
+    </div>
+  </div>
+
+  <script>
+    function getParam(key) {
+      const params = new URLSearchParams(window.location.search);
+      return decodeURIComponent(params.get(key) || '');
+    }
+
+    function formatCPF(cpf) {
+      const numbers = cpf.replace(/\D/g, '');
+      if (numbers.length === 11) {
+        return numbers.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+      }
+      return cpf;
+    }
+
+    function formatMoney(value) {
+      return new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+      }).format(value);
+    }
+
+    function formatDate(dateStr) {
+      if (!dateStr) return '---';
+      if (dateStr.match(/^\d{2}\/\d{2}\/\d{4}$/)) return dateStr;
+      
+      const date = new Date(dateStr);
+      if (isNaN(date)) return dateStr;
+      
+      return date.toLocaleDateString('pt-BR');
+    }
+
+    function calcularPercentualDesconto(original, final) {
+      const desconto = ((original - final) / original) * 100;
+      return desconto.toFixed(1);
+    }
+
+    function preencherDados() {
+      // Dados pessoais
+      const nome = getParam('nome') || '---';
+      const cpf = getParam('cpf') || '---';
+      
+      // Dados financeiros
+      const valorOriginal = parseFloat(getParam('valorOriginal')) || 7488.05;
+      const valorAcordo = parseFloat(getParam('valorAcordo')) || 78.47;
+      const formaPagamento = getParam('formaPagamento') || 'PIX';
+      const statusPagamento = getParam('statusPagamento') || 'PENDENTE';
+      const prazoPagamento = getParam('prazoPagamento') || '---';
+      
+      // Dados do documento
+      const percentualDesconto = calcularPercentualDesconto(valorOriginal, valorAcordo);
+      const textoDesconto = getParam('desconto') || `Desconto de ${percentualDesconto}% sobre os débitos em aberto`;
+      
+      // Preencher campos
+      document.getElementById('nome').textContent = nome;
+      document.getElementById('cpf').textContent = formatCPF(cpf);
+      document.getElementById('valorOriginal').textContent = formatMoney(valorOriginal);
+      document.getElementById('valorAcordo').textContent = formatMoney(valorAcordo);
+      document.getElementById('formaPagamento').textContent = formaPagamento;
+      document.getElementById('statusPagamento').textContent = statusPagamento;
+      //document.getElementById('prazoPagamento').textContent = formatDate(prazoPagamento);
+      document.getElementById('descontoTexto').textContent = textoDesconto;
+      
+      // Data de emissão (hoje)
+      const hoje = new Date();
+      document.getElementById('dataEmissao').textContent = hoje.toLocaleDateString('pt-BR');
+      document.getElementById('prazoPagamento').textContent = hoje.toLocaleDateString('pt-BR');
+    }
+
+    window.onload = preencherDados;
+  </script>
+</body>
+</html>
